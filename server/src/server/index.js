@@ -18,8 +18,9 @@ import routes from "../server/routes";
 
   const SwaggerOptions = {
     info: {
-      title: "QnA API Documentation",
-      version: "1.0"
+      title: "API Documentation",
+      version: "1.0",
+      contact: { name: "Deepansh Bhargava", email: "deepansh940@gmail.com" }
     }
   };
 

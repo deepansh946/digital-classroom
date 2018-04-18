@@ -112,7 +112,7 @@ routes.push({
 
 routes.push({
   method: "GET",
-  path: "/question/{questionId}",
+  path: "/questions/{questionId}/answers",
   config: getAllByQuestionId
 });
 
