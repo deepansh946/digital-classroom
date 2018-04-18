@@ -2,11 +2,12 @@ import mongoose from "mongoose";
 
 import Question from "../models/Question";
 
-export async function create({ text, authorId }) {
+export async function create({ text, authorId, description }) {
   try {
     const question = new Question({
       text: text,
-      authorId: authorId
+      authorId: authorId,
+      description: description
     });
 
     const { newQuestion } = await question.save();
@@ -83,7 +84,7 @@ export async function getAll() {
   }
 }
 
-export async function update({ questionId, text }) {
+export async function update({ questionId, text, description }) {
   try {
     const query = Question.findById(questionId);
 
@@ -91,6 +92,10 @@ export async function update({ questionId, text }) {
 
     if (text) {
       question.text = text;
+    }
+
+    if (description) {
+      question.description = description;
     }
 
     const { res } = question.save();
