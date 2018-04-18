@@ -2,14 +2,9 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 
-const questionSchema = new schema({
-  questionId: String,
-  text: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  description: {
+const testSchema = new schema({
+  testId: String,
+  question: {
     type: String,
     required: true
   },
@@ -17,12 +12,16 @@ const questionSchema = new schema({
     type: Date,
     required: true,
     unique: true,
-    default: Date.now
+    default: Date.now()
   },
   authorId: {
     type: String,
     required: true
+  },
+  answers: {
+    type: Array,
+    required: true
   }
 });
 
-export default mongoose.model("Question", questionSchema);
+export default mongoose.model("Test", testSchema);
