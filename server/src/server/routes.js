@@ -56,7 +56,7 @@ routes.push({
  */
 routes.push({
   method: "POST",
-  path: "/questions/",
+  path: "/questions",
   config: createQuestion
 });
 
@@ -89,7 +89,7 @@ routes.push({
  */
 routes.push({
   method: "POST",
-  path: "/answers/",
+  path: "/answers",
   config: createAnswer
 });
 

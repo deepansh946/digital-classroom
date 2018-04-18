@@ -8,14 +8,16 @@ export default {
   notes: "It will create a new answer",
   validate: {
     payload: Joi.object({
-      text: Joi.string().required()
+      text: Joi.string().required(),
+      authorId: Joi.string().required(),
+      questionId: Joi.string().required()
     })
   },
   async handler(request, reply) {
     try {
-      const { text } = request.payload;
+      const { text, authorId, questionId } = request.payload;
 
-      const res = await create({ text });
+      const res = await create({ text, authorId, questionId });
 
       return res;
     } catch (error) {

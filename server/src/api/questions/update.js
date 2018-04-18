@@ -11,16 +11,17 @@ export default {
       questionId: Joi.string().required()
     }),
     payload: Joi.object({
-      text: Joi.string()
+      text: Joi.string(),
+      description: Joi.string()
     })
   },
   async handler(request, reply) {
     try {
       const { questionId } = request.params;
 
-      const { text } = request.payload;
+      const { text, description } = request.payload;
 
-      const res = await update({ questionId, text });
+      const res = await update({ questionId, text, description });
 
       return res;
     } catch (error) {
