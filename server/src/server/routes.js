@@ -16,6 +16,11 @@ import getAllByAuthorId from "../api/answers/getAllByAuthorId";
 import getAllByQuestionId from "../api/answers/getAllByQuestionId";
 import DeleteAnswer from "../api/answers/delete";
 
+import createTest from "../api/testApi/create";
+import deleteTest from "../api/testApi/delete";
+import getAllTests from "../api/testApi/getAllByAuthorId";
+import updateTest from "../api/testApi/delete";
+
 const routes = [];
 
 /**
@@ -115,6 +120,32 @@ routes.push({
   method: "DELETE",
   path: "/answers/{answerId}",
   config: DeleteAnswer
+});
+
+/** Routes for Test */
+
+routes.push({
+  method: "POST",
+  path: "/test",
+  config: createTest
+});
+
+routes.push({
+  method: "PUT",
+  path: "/test/{testId}",
+  config: updateTest
+});
+
+routes.push({
+  method: "GET",
+  path: "/test/{authorId}",
+  config: getAllTests
+});
+
+routes.push({
+  method: "DELETE",
+  path: "/test/{testId}",
+  config: deleteTest
 });
 
 export default routes;
