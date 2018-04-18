@@ -28,8 +28,8 @@ export async function create({ text, authorId, questionId }) {
 }
 
 // create({
-//   text: 'First answer', 
-//   authorId: "12312312", 
+//   text: 'First answer',
+//   authorId: "12312312",
 //   questionId: "5a99587abcacb7692b1230d4"
 // })
 //   .then(e => console.log(e))
@@ -37,7 +37,7 @@ export async function create({ text, authorId, questionId }) {
 
 export async function getAllByQuestionId({ questionId }) {
   try {
-    const query = Answer.find({ 'questionId': questionId });
+    const query = Answer.find({ questionId: questionId });
 
     const answers = await query.exec();
 
@@ -56,13 +56,13 @@ export async function getAllByQuestionId({ questionId }) {
   }
 }
 
-// getAllByQuestionId({questionId: "5a99587abcacb7692b1230d4"})
+// getAllByQuestionId({ questionId: "5a99587abcacb7692b1230d4" })
 //   .then(e => console.log(e))
 //   .catch(e => console.log(e));
 
 export async function getAllByAuthorId({ authorId }) {
   try {
-    const query = Answer.find({ 'authorId': authorId });
+    const query = Answer.find({ authorId: authorId });
 
     const answers = await query.exec();
 
