@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import withStyles from 'material-ui/styles/withStyles';
+import withStyles from "material-ui/styles/withStyles";
 
-import Checkbox from 'material-ui/Checkbox';
+import Checkbox from "material-ui/Checkbox";
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
-    flexGrow: 1,
-  },
+    padding: "1%"
+  }
 });
 
 class Answer extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     answer: PropTypes.bool,
-    explaination: PropTypes.string.isRequired,
+    explaination: PropTypes.string.isRequired
   };
 
   static defaultProps = {
-    answer: false,
+    answer: false
   };
 
   constructor(props) {
     super(props);
     this.state = {
       dirty: false,
-      answer: false,
+      answer: false
     };
   }
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
       dirty: true,
-      answer: e.target.value,
+      answer: e.target.value
     });
   };
 
@@ -41,9 +41,10 @@ class Answer extends Component {
     // console.log(this.props);
     const { dirty } = this.state;
     const { title, explaination } = this.props;
+    const { classes } = this.props;
 
     return (
-      <div className={this.props.classes.root}>
+      <div className={classes.root}>
         <Checkbox value={this.props.answer} onChange={this.onChange} />
         {title}
         <div>{dirty ? explaination : null}</div>

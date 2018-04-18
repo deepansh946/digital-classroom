@@ -4,6 +4,16 @@ import withStyles from "material-ui/styles/withStyles";
 import Typography from "material-ui/Typography";
 import Button from "material-ui/Button";
 import Switch from "material-ui/Switch";
+import Dialog from "material-ui/Dialog";
+import List, { ListItem, ListItemText } from "material-ui/List";
+import Divider from "material-ui/Divider";
+import AppBar from "material-ui/AppBar";
+import Toolbar from "material-ui/Toolbar";
+
+import IconButton from "material-ui/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Slide from "material-ui/transitions/Slide";
+import AddIcon from "@material-ui/icons/Add";
 
 import PropTypes from "prop-types";
 
@@ -12,8 +22,37 @@ import Input from "../Input";
 const styles = theme => ({
   root: {
     padding: "10px"
+  },
+  typography: {
+    padding: "2px"
+  },
+  input: {
+    flexGrow: "1",
+    border: "2px solid #dadada",
+    borderRadius: "7px",
+    padding: "8px",
+    "&:focus": {
+      outline: "none",
+      borderColor: "#9ecaed",
+      boxShadow: "0 0 10px #9ecaed"
+    }
+  },
+  appBar: {
+    position: "relative"
+  },
+  flex: {
+    flex: 1
+  },
+  buttonCreate: {
+    position: "fixed",
+    right: "20px",
+    bottom: "20px"
   }
 });
+
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
 
 class QuestionCreate extends Component {
   static propTypes = {
@@ -23,6 +62,7 @@ class QuestionCreate extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      open: false,
       title: "",
       titleLength: 0,
       description: "",
@@ -56,11 +96,6 @@ class QuestionCreate extends Component {
     this.setState({
       [name]: e.target.checked
     });
-
-    // console.log(this.state.optionAAnswer);
-    // console.log(this.state.optionBAnswer);
-    // console.log(this.state.optionCAnswer);
-    // console.log(this.state.optionDAnswer);
   };
 
   onChange = name => e => {
@@ -99,19 +134,24 @@ class QuestionCreate extends Component {
     this.setState({
       title: "",
       description: "",
-
       optionA: "",
       optionAAnswer: false,
-
       optionB: "",
       optionBAnswer: false,
-
       optionC: "",
       optionCAnswer: false,
-
       optionD: "",
-      optionDAnswer: false
+      optionDAnswer: false,
+      open: false
     });
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -129,73 +169,179 @@ class QuestionCreate extends Component {
       optionDAnswer
     } = this.state;
 
+    const { classes } = this.props;
+
     return (
       <div>
-        <Card raised>
-          <Typography>Question:</Typography>
-          <Input
-            value={title}
-            placeholder={placeholder}
-            onChange={this.onChange("title")}
-          />
+        <Button
+          className={classes.buttonCreate}
+          raised="true"
+          onClick={this.handleClickOpen}
+          variant="fab"
+          aria-label="add"
+        >
+          <AddIcon />
+        </Button>
+        <Dialog
+          fullScreen
+          open={this.state.open}
+          onClose={this.handleClose}
+          transition={Transition}
+        >
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                onClick={this.handleClose}
+                aria-label="Close"
+              >
+                <CloseIcon />
+              </IconButton>
+              <Typography
+                variant="title"
+                color="inherit"
+                className={classes.flex}
+              >
+                Create Question
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Card raised="true" style={{ padding: "20px" }}>
+            <div style={{ marginBottom: "10px" }}>
+              <Typography variant="title">Question:</Typography>
+              <div style={{ marginTop: "10px" }}>
+                <Input
+                  value={title}
+                  placeholder={placeholder}
+                  onChange={this.onChange("title")}
+                />
+              </div>
+            </div>
 
-          <Typography>Description:</Typography>
-          <Input
-            value={description}
-            placeholder={placeholder}
-            onChange={this.onChange("description")}
-          />
+            <div style={{ marginBottom: "10px" }}>
+              <Typography variant="title">Description:</Typography>
+              <div style={{ marginTop: "10px" }}>
+                <Input
+                  value={description}
+                  placeholder={placeholder}
+                  onChange={this.onChange("description")}
+                />
+              </div>
+            </div>
 
-          <Typography>Options</Typography>
+            <Typography variant="subheading">Options</Typography>
 
-          <h3>A</h3>
-          <Input
-            value={optionA}
-            placeholder={placeholder}
-            onChange={this.onChange("optionA")}
-          />
-          <Switch
-            checked={optionAAnswer}
-            onChange={this.onChangeToggle("optionAAnswer")}
-          />
+            <div style={{ display: "flex", justifyContent: "safe" }}>
+              <Typography
+                variant="headline"
+                style={{ marginTop: "10px", marginRight: "10px" }}
+              >
+                A
+              </Typography>
+              <input
+                type="text"
+                placeholder={placeholder || "input"}
+                value={optionA}
+                onChange={this.onChange("optionA")}
+                className={classes.input}
+              />
+              <Switch
+                checked={optionAAnswer}
+                onChange={this.onChangeToggle("optionAAnswer")}
+              />
+            </div>
 
-          <h3>B</h3>
-          <Input
-            value={optionB}
-            placeholder={placeholder}
-            onChange={this.onChange("optionB")}
-          />
-          <Switch
-            checked={optionBAnswer}
-            onChange={this.onChangeToggle("optionBAnswer")}
-          />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "safe",
+                marginTop: "10px"
+              }}
+            >
+              <Typography
+                variant="headline"
+                style={{ marginTop: "10px", marginRight: "10px" }}
+              >
+                B
+              </Typography>
+              <input
+                type="text"
+                placeholder={placeholder || "input"}
+                value={optionB}
+                onChange={this.onChange("optionB")}
+                className={classes.input}
+              />
+              <Switch
+                checked={optionBAnswer}
+                onChange={this.onChangeToggle("optionBAnswer")}
+              />
+            </div>
 
-          <h3>C</h3>
-          <Input
-            value={optionC}
-            placeholder={placeholder}
-            onChange={this.onChange("optionC")}
-          />
-          <Switch
-            checked={optionCAnswer}
-            onChange={this.onChangeToggle("optionCAnswer")}
-          />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "safe",
+                marginTop: "10px"
+              }}
+            >
+              <Typography
+                variant="headline"
+                style={{ marginTop: "10px", marginRight: "10px" }}
+              >
+                C
+              </Typography>
+              <input
+                type="text"
+                placeholder={placeholder || "input"}
+                value={optionC}
+                onChange={this.onChange("optionC")}
+                className={classes.input}
+              />
+              <Switch
+                checked={optionCAnswer}
+                onChange={this.onChangeToggle("optionCAnswer")}
+              />
+            </div>
 
-          <h3>D</h3>
-          <Input
-            value={optionD}
-            placeholder={placeholder}
-            onChange={this.onChange("optionD")}
-          />
-          <Switch
-            checked={optionDAnswer}
-            onChange={this.onChangeToggle("optionDAnswer")}
-          />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "safe",
+                marginTop: "10px"
+              }}
+            >
+              <Typography
+                variant="headline"
+                style={{ marginTop: "10px", marginRight: "10px" }}
+              >
+                D
+              </Typography>
+              <input
+                type="text"
+                placeholder={placeholder || "input"}
+                value={optionD}
+                onChange={this.onChange("optionD")}
+                className={classes.input}
+              />
+              <Switch
+                checked={optionDAnswer}
+                onChange={this.onChangeToggle("optionDAnswer")}
+              />
+            </div>
 
-          <Button raised onClick={this.onSubmit}>
-            Create
-          </Button>
-        </Card>
+            <Button
+              variant="raised"
+              onClick={this.onSubmit}
+              style={{
+                marginTop: "15px",
+                marginRight: "100px",
+                borderRadius: "10%"
+              }}
+            >
+              Save
+            </Button>
+          </Card>
+        </Dialog>
       </div>
     );
   }

@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import Card from 'material-ui/Card/Card';
-import CardHeader from 'material-ui/Card/CardHeader';
-import CardContent from 'material-ui/Card/CardContent';
+import React, { Component } from "react";
+import Card from "material-ui/Card/Card";
+import CardHeader from "material-ui/Card/CardHeader";
+import CardContent from "material-ui/Card/CardContent";
 
-import withStyles from 'material-ui/styles/withStyles';
+import withStyles from "material-ui/styles/withStyles";
 
-import Answer from './Answer';
+import Answer from "./Answer";
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
-    padding: '1px',
-  },
+    padding: "10px"
+  }
 });
 
 class Question extends Component {
