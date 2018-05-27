@@ -11,9 +11,6 @@ import red from "material-ui/colors/red";
 import SignIn from "./SignIn";
 import Classroom from "./Classroom";
 
-// const primary = grey[200];
-// const primary = red;
-// const secondary = cyan;
 class AppRoutes extends Component {
   render() {
     const theme = createMuiTheme({
