@@ -15,7 +15,7 @@ export default {
     try {
       const { questionId } = request.params;
 
-      const res = await getAllByQuestionId({ questioId });
+      const res = await getAllByQuestionId({ questionId });
 
       return res;
     } catch (error) {
