@@ -1,4 +1,4 @@
-// TODO : Add text editor for entering syllabus
+// TODO : Add text editor for entering syllabus or file upload
 
 import React, { Component } from "react";
 
