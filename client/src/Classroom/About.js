@@ -11,17 +11,19 @@ import { Card, CardContent, CardHeader } from "material-ui";
 const styles = theme => ({
   root: {},
   card: {
-    minWidth: 275,
-    margin: "10px"
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
+    // minWidth: 275,
+    width: "550px",
+    height: "auto",
+    // margin: "10px",
+    align: "center",
+    margin: "10px auto" /* Added */,
+    float: "none" /* Added */
   },
   title: {
-    marginBottom: 16,
-    fontSize: 20
+    // marginBottom: 16,
+    // textAlign: "center",
+    fontSize: 20,
+    display: "inline-block"
   },
   pos: {
     marginBottom: 12
@@ -40,7 +42,7 @@ class About extends Component {
       <div>
         <Card className={classes.card}>
           <CardContent>
-            <Typography className={classes.title} color="default">
+            <Typography className={classes.title} component="p" color="default">
               Name: Compiler Design
             </Typography>
           </CardContent>
