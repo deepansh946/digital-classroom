@@ -11,7 +11,7 @@ import Dialog, {
   DialogContentText,
   DialogTitle
 } from "material-ui/Dialog";
-import AddIcon from "@material-ui/icons/Add";
+// import AddIcon from "@material-ui/icons/Add";
 
 import "../../App.css";
 import Question from "./Question";
@@ -71,7 +71,7 @@ class Discussion extends Component {
           variant="fab"
           aria-label="add"
         >
-          <AddIcon />
+          {/* <AddIcon /> */}
         </Button>
         <Dialog
           className={classes.dialogBox}

@@ -11,9 +11,9 @@ import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 
 import IconButton from "material-ui/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+// import CloseIcon from "@material-ui/icons/Close";
 import Slide from "material-ui/transitions/Slide";
-import AddIcon from "@material-ui/icons/Add";
+// import AddIcon from "@material-ui/icons/Add";
 
 import PropTypes from "prop-types";
 
@@ -180,7 +180,7 @@ class QuestionCreate extends Component {
           variant="fab"
           aria-label="add"
         >
-          <AddIcon />
+          {/* <AddIcon /> */}
         </Button>
         <Dialog
           fullScreen
@@ -195,7 +195,7 @@ class QuestionCreate extends Component {
                 onClick={this.handleClose}
                 aria-label="Close"
               >
-                <CloseIcon />
+                {/* <CloseIcon /> */}
               </IconButton>
               <Typography
                 variant="title"
