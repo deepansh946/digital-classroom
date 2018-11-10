@@ -7,7 +7,7 @@ import AppBar from "material-ui/AppBar";
 import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 
-import logo from "../logo.svg";
+import classroom from "../classroom.png";
 import "../App.css";
 
 import About from "./About";
@@ -46,7 +46,7 @@ class Classroom extends Component {
     return (
       <div className="root">
         <header className="App-header" style={{ textAlign: "center" }}>
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={classroom} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Digital Classroom</h1>
         </header>
 

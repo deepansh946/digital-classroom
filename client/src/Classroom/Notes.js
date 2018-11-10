@@ -10,7 +10,6 @@ import AppBar from "material-ui/AppBar";
 import Tabs, { Tab } from "material-ui/Tabs";
 import Typography from "material-ui/Typography";
 
-import logo from "../logo.svg";
 import "../App.css";
 
 const styles = theme => ({

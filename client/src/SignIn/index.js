@@ -11,14 +11,15 @@ import Button from "material-ui/Button";
 import { withRouter } from "react-router";
 import Typography from "@material-ui/core/Typography";
 
-import logo from "../logo.svg";
+import classroom from "../classroom.png";
 import "../App.css";
 
 const styles = theme => ({
   root: {
     flexGrow: "1",
     padding: "2px",
-    height: "calc(100vh - 90px)"
+    height: "calc(100vh - 90px)",
+    background: "#E4C9C8"
   },
   card: {
     padding: "2px",
@@ -30,11 +31,11 @@ const styles = theme => ({
   cardContent: {
     textAlign: "center"
   },
-  cardActions: {},
   textField: {
     width: "95%",
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing.unit,
+    marginTop: 10
   },
   flexGrow: {
     flex: "1 1 auto"
@@ -60,9 +61,15 @@ const styles = theme => ({
     fontSize: 20
   },
   signIn: {
-    margin: "0 auto",
-    background: "#000000",
-    color: "#fff"
+    boxShadow: "3px 3px #ff3333",
+    transitionDuration: "0.5s",
+    margin: "0 auto !important",
+    border: "1px solid #000",
+    transform: "translateY(-2px)",
+    "&:hover": {
+      transform: "translateY(0px)",
+      boxShadow: "3px 3px #fff"
+    }
   }
 });
 
@@ -86,7 +93,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={classroom} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Digital Classroom</h1>
         </header>
 
@@ -110,7 +117,10 @@ class App extends Component {
           >
             <Card raised className={classes.card}>
               <CardHeader title={"Sign In"} className={classes.cardHeader} />
-              <CardContent className={classes.cardContent}>
+              <CardContent
+                className={classes.cardContent}
+                style={{ paddingTop: "0" }}
+              >
                 <TextField
                   id="username"
                   label="Username"
@@ -128,10 +138,11 @@ class App extends Component {
                   onChange={this.onChangePassword}
                 />
               </CardContent>
-              <CardActions>
+              <CardActions className="mt-3 mb-3">
                 <Button
-                  raised="true"
                   onClick={this.onSubmit}
+                  variant="outlined"
+                  color="primary"
                   className={classes.signIn}
                 >
                   Let's Go!

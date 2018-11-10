@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 
 import Typography from "material-ui/Typography";
+import Grid from "material-ui/Grid";
 
 import "../App.css";
 import { Card, CardContent, CardHeader } from "material-ui";
@@ -11,17 +12,13 @@ import { Card, CardContent, CardHeader } from "material-ui";
 const styles = theme => ({
   root: {},
   card: {
-    // minWidth: 275,
     width: "550px",
     height: "auto",
-    // margin: "10px",
     align: "center",
     margin: "10px auto" /* Added */,
     float: "none" /* Added */
   },
   title: {
-    // marginBottom: 16,
-    // textAlign: "center",
     fontSize: 20,
     display: "inline-block"
   },
@@ -39,54 +36,135 @@ class About extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} component="p" color="default">
-              Name: Compiler Design
-            </Typography>
-          </CardContent>
-        </Card>
+      <div style={{ "margin-top": 20 }}>
+        <Grid
+          container
+          spacing={0}
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className={classes.root}
+        >
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            justify="center"
+            alignItems="center"
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <i
+                  className="fa fa-bars fa-lg mr-2"
+                  style={{ color: "#ff3333" }}
+                />
+                <Typography
+                  className={classes.title}
+                  component="p"
+                  color="default"
+                >
+                  <strong>Name:</strong> Compiler Design
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} color="default">
-              Description: A compiler translates the code written in one
-              language to some other language without changing the meaning of
-              the program. It is also expected that a compiler should make the
-              target code efficient and optimized in terms of time and space.
-              Compiler design principles provide an in-depth view of translation
-              and optimization process. Compiler design covers basic translation
-              mechanism and error detection & recovery. It includes lexical,
-              syntax, and semantic analysis as front end, and code generation
-              and optimization as back-end.
-            </Typography>
-          </CardContent>
-        </Card>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            justify="center"
+            alignItems="center"
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <i
+                  className="fa fa-location-arrow fa-lg mr-2"
+                  style={{ color: "#ff3333" }}
+                />
+                <Typography className={classes.title} color="default">
+                  <strong>Level:</strong> Beginner
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} color="default">
-              Professor Name : Prof. Mahesh Parmar
-            </Typography>
-          </CardContent>
-        </Card>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            justify="center"
+            alignItems="center"
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <i
+                  className="fa fa-male fa-lg mr-2"
+                  style={{ color: "#ff3333" }}
+                />
+                <Typography className={classes.title} color="default">
+                  <strong>Professor Name:</strong> Prof. Mahesh Parmar
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} color="default">
-              Number Of Students : 120
-            </Typography>
-          </CardContent>
-        </Card>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            justify="center"
+            alignItems="center"
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <i
+                  className="fa fa-users fa-lg mr-2"
+                  style={{ color: "#ff3333" }}
+                />
+                <Typography className={classes.title} color="default">
+                  <strong>Number Of Students:</strong> 120
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} color="default">
-              Level : Beginner
-            </Typography>
-          </CardContent>
-        </Card>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            justify="center"
+            alignItems="center"
+          >
+            <Card className={classes.card}>
+              <CardContent>
+                <div>
+                  <Typography className={classes.title} color="default">
+                    <i
+                      className="fa fa-list-alt"
+                      style={{ color: "#ff3333" }}
+                    />
+                    <strong> Description:</strong> A compiler translates the
+                    code written in one language to some other language without
+                    changing the meaning of the program. It is also expected
+                    that a compiler should make the target code efficient and
+                    optimized in terms of time and space.
+                  </Typography>
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     );
   }
