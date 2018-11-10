@@ -10,6 +10,7 @@ import red from "material-ui/colors/red";
 
 import SignIn from "./SignIn";
 import Classroom from "./Classroom";
+import NewUser from "./SignIn/NewUser";
 
 class AppRoutes extends Component {
   render() {
@@ -29,6 +30,7 @@ class AppRoutes extends Component {
         <Switch>
           <Route exact path={"/"} component={SignIn} />
           <Route exact path={"/classroom"} component={Classroom} />
+          <Route exact path={"/userRegister"} component={NewUser} />
         </Switch>
       </MuiThemeProvider>
     );

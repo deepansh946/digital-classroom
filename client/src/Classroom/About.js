@@ -36,7 +36,7 @@ class About extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div style={{ "margin-top": 20 }}>
+      <div style={{ "margin-top": 20 }} className={classes.root}>
         <Grid
           container
           spacing={0}

@@ -1,0 +1,56 @@
+.root {
+  flex-grow: 1;
+  padding: 2px;
+  height: calc(100vh - 90px);
+  background: #eb5c5c;
+}
+
+.card {
+  max-width: 500px;
+  padding: 2px;
+  margin-bottom: 90px;
+}
+.cardHeader {
+  text-align: center;
+}
+.cardContent {
+  text-align: center;
+}
+.textField {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15;
+}
+.flexGrow {
+  flex: 1 1 auto;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.username {
+  margin-right: 10px;
+}
+.margin {
+  margin: auto;
+}
+
+.title {
+  margin-bottom: 16;
+  font-size: 20;
+}
+.signIn {
+  box-shadow: 3px 3px #ff3333;
+  transition-duration: 0.5s;
+  margin: 0 auto !important;
+  border: 1px solid #000 !important;
+  transform: translateY(-2px);
+}
+.signIn:hover {
+  transform: translateY(0px);
+  box-shadow: 3px 3px #fff;
+}

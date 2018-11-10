@@ -11,17 +11,17 @@ import Button from "material-ui/Button";
 import { withRouter } from "react-router";
 import Typography from "@material-ui/core/Typography";
 
-import classroom from "../classroom.png";
-import "../App.css";
+import Header from "../Header";
 
 const styles = theme => ({
   root: {
     flexGrow: "1",
     padding: "2px",
     height: "calc(100vh - 90px)",
-    background: "#E4C9C8"
+    background: "#EB5C5C"
   },
   card: {
+    maxWidth: "500px",
     padding: "2px",
     marginBottom: "90px"
   },
@@ -70,6 +70,9 @@ const styles = theme => ({
       transform: "translateY(0px)",
       boxShadow: "3px 3px #fff"
     }
+  },
+  link: {
+    textDecoration: "none !important"
   }
 });
 
@@ -87,15 +90,16 @@ class App extends Component {
     this.props.history.push("/classroom");
   };
 
+  onNewUser = () => {
+    this.props.history.push("/userRegister");
+  };
+
   render() {
     const { classes } = this.props;
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={classroom} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Digital Classroom</h1>
-        </header>
+        <Header />
 
         <Grid
           container
@@ -105,16 +109,7 @@ class App extends Component {
           alignItems="center"
           className={classes.root}
         >
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={6}
-            lg={4}
-            xl={4}
-            justify="center"
-            alignItems="center"
-          >
+          <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
             <Card raised className={classes.card}>
               <CardHeader title={"Sign In"} className={classes.cardHeader} />
               <CardContent
@@ -138,7 +133,7 @@ class App extends Component {
                   onChange={this.onChangePassword}
                 />
               </CardContent>
-              <CardActions className="mt-3 mb-3">
+              <CardActions className="mt-1 mb-3">
                 <Button
                   onClick={this.onSubmit}
                   variant="outlined"
@@ -146,6 +141,15 @@ class App extends Component {
                   className={classes.signIn}
                 >
                   Let's Go!
+                </Button>
+
+                <Button
+                  onClick={this.onNewUser}
+                  variant="outlined"
+                  color="primary"
+                  className={classes.signIn}
+                >
+                  New User?
                 </Button>
               </CardActions>
             </Card>

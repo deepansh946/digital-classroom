@@ -15,6 +15,7 @@ import Discussion from "./Discussion";
 import Notes from "./Notes";
 import Syllabus from "./Syllabus";
 import TestYourself from "./TestYourself";
+import Header from "../Header";
 
 const styles = theme => ({
   root: {
@@ -45,11 +46,9 @@ class Classroom extends Component {
 
     return (
       <div className="root">
-        <header className="App-header" style={{ textAlign: "center" }}>
-          <img src={classroom} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Digital Classroom</h1>
-        </header>
-
+        <center>
+          <Header />
+        </center>
         <AppBar position="static" color="default">
           <Tabs
             value={this.state.value}

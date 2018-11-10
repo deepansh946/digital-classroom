@@ -42,7 +42,7 @@ class Syllabus extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="default">

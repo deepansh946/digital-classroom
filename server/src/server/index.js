@@ -9,12 +9,15 @@ import routes from "../server/routes";
 (async () => {
   const server = await Hapi.server({
     host: "localhost",
-    port: 3000
+    port: 3001
   });
 
-  const database = "mongodb://127.0.0.1:27017";
+  const database = "mongodb://127.0.0.1:27017/db";
 
-  mongoose.connect(database, { connectTimeoutMS: 1000 });
+  mongoose.connect(
+    database,
+    { connectTimeoutMS: 1000 }
+  );
 
   const SwaggerOptions = {
     info: {
@@ -36,13 +39,12 @@ import routes from "../server/routes";
   server.route(routes);
 
   try {
-    await server.start();
     const db = await mongoose.connection;
-    db
-      .on("error", console.error.bind(console, "connection error:"))
-      .once("open", () => {
-        console.log("Mongo is live!");
-      });
+    db.on("error", console.error.bind(console, "connection error:"));
+    db.once("open", () => {
+      console.log("Mongo is live!");
+    });
+    await server.start();
     console.log("Server running at:", server.info.uri);
   } catch (err) {
     console.log(err);

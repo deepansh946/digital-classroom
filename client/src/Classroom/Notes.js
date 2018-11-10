@@ -23,8 +23,9 @@ class Notes extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <ul>
           <li>Chapter 1</li>
           <li>Chapter 1</li>
